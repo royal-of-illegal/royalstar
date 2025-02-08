@@ -3,173 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROYAL_OF_ILLEGAL</title>
+    <title>Secure Access</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Courier New', Courier, monospace;
-            background: #000;
-            color: #0f0;
-            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: lime;
+            padding: 50px;
         }
-
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
+            background: #111;
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px lime;
+            max-width: 500px;
+            margin: auto;
         }
-
-        .header {
-            font-size: 2rem;
-            animation: glitch 1.5s infinite;
+        input, button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 80%;
+            background: black;
+            color: lime;
+            border: 1px solid lime;
         }
-
-        @keyframes glitch {
-            0%, 100% { text-shadow: 1px 1px #0f0, -1px -1px #0f0; }
-            50% { text-shadow: -1px -1px #0f0, 1px 1px #f00; }
+        .hidden-text {
+            font-size: 0px;
+            user-select: none;
         }
-
-        .tools {
+        .warning {
+            color: red;
+            font-weight: bold;
             margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        .tool {
-            background: rgba(15, 15, 15, 0.8);
-            padding: 15px;
-            border: 1px solid #0f0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-
-        .tool:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px #0f0;
-        }
-
-        .tool a {
-            color: #0f0;
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        #assistant {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(15, 15, 15, 0.9);
-            border: 1px solid #0f0;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0f0;
-            font-size: 1.5rem;
-            cursor: pointer;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 5px #0f0; }
-            50% { box-shadow: 0 0 15px #0f0; }
-        }
-
-        .binary {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-            color: rgba(0, 255, 0, 0.2);
-            font-size: 12px;
-            white-space: nowrap;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                font-size: 1.5rem;
-            }
-
-            .tool {
-                padding: 10px;
-                font-size: 0.9rem;
-            }
-
-            #assistant {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                font-size: 1.2rem;
-            }
-
-            .tool {
-                padding: 8px;
-                font-size: 0.8rem;
-            }
-
-            #assistant {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="binary" id="binary"></div>
-
+    <marquee behavior="scroll" direction="left">ENTER BY USING CODE</marquee>
+    <marquee behavior="scroll" direction="right">ENTER BY USING CODE</marquee>
     <div class="container">
-        <div class="header">ROYAL OF ILLEGAL</div>
-
-        <div class="tools">
-            <div class="tool"><a href="/path/tool1">Royalstar</a></div>
-            <div class="tool"><a href="/path/tool2">STORY</a></div>
-            <div class="tool"><a href="https://royal-of-illegal.github.io/royal-of-illegal/">ROYAL_OF_ILLEGAL</a></div>
-            <div class="tool"><a href="/path/tool4">BIMO</a></div>
+        <h2 id="question">Authentication Required</h2>
+        <input type="text" id="answer" placeholder="Enter Code">
+        <button onclick="checkAnswer()">Submit</button>
+        <div id="warning" class="warning">
+            <marquee behavior="scroll" direction="left">LEAVE THE SITE NOW! RISK DETECTED!</marquee>
+            <marquee behavior="scroll" direction="right">LEAVE THE SITE NOW! RISK DETECTED!</marquee>
         </div>
+        <p class="hidden-text">deepikadivyamanjula</p>
     </div>
-    <div id="assistant" title="Click for AI Assistant">AI</div>
+    <marquee behavior="scroll" direction="left">LEAVE THE SITE NOW! RISK DETECTED!</marquee>
+    <marquee behavior="scroll" direction="right">ENTER BY USING CODE</marquee>
+  
 
     <script>
-        const binary = document.getElementById('binary');
-        const chars = '01';
-
-        function createBinaryEffect() {
-            binary.innerHTML = '';
-            for (let i = 0; i < 300; i++) {
-                const span = document.createElement('span');
-                span.style.left = `${Math.random() * 100}%`;
-                span.style.animationDelay = `${Math.random() * 10}s`;
-                span.innerText = chars[Math.floor(Math.random() * chars.length)];
-                binary.appendChild(span);
+        async function checkAnswer() {
+            let userName = document.getElementById("answer").value;
+            let hash = await sha256(userName);
+            
+          
+            const correctHash = "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd8f48e99b79f7d0a92";
+            
+            if (hash === correctHash) {
+                document.getElementById("warning").style.display = "block";
+                setTimeout(() => {
+                    window.location.href = "YOUR_CORRECT_URL_PATH";
+                }, 5000);
+            } else {
+                alert("Access Denied! Try Again!");
             }
         }
 
-        document.getElementById('assistant').addEventListener('click', () => {
-            alert('AI Assistant coming soon!');
-        });
-
-        createBinaryEffect();
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
     </script>
 </body>
 </html>
