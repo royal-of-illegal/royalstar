@@ -29,6 +29,12 @@
             margin: 0;
             overflow-x: hidden;
         }
+        .container {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
         .sidebar {
             width: 20vw;
             min-width: 200px;
@@ -101,84 +107,103 @@
             box-shadow: 0 0 10px #0f0;
         }
         .portfolio-box {
-            margin-top: 30px;
-            padding: 15px;
-            border: 2px solid #0f0;
             background-color: #000;
+            border: 2px solid #0f0;
+            padding: 20px;
             text-align: center;
-            animation: fadeIn 1.5s ease-in;
+            margin-top: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .portfolio-box a {
-            font-size: 12px;
-            padding: 8px 15px;
+        .portfolio-box img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid #0f0;
+        }
+        .message-card {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #000;
+            padding: 20px;
+            border: 2px solid #0f0;
+            text-align: center;
+            width: 300px;
+            animation: fadeIn 1s ease-in;
+        }
+        .message-card button {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: red;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
         }
         footer {
             text-align: center;
             padding: 10px;
             background-color: #000;
             border-top: 2px solid #0f0;
-            position: relative;
+            position: fixed;
             bottom: 0;
             width: 100%;
         }
-        @media screen and (max-width: 768px) {
-            .sidebar {
-                width: 25vw;
-                min-width: 150px;
-            }
-            .main-content {
-                margin-left: 27vw;
-                width: calc(100% - 27vw);
-            }
-        }
-        @media screen and (max-width: 480px) {
-            .sidebar {
-                width: 30vw;
-                min-width: 120px;
-            }
-            .main-content {
-                margin-left: 32vw;
-                width: calc(100% - 32vw);
-            }
-        }
     </style>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.getElementById("messageCard").style.display = "block";
+            }, 1000);
+        });
+        function closeMessageCard() {
+            document.getElementById("messageCard").style.display = "none";
+        }
         document.addEventListener("contextmenu", function(event) {
             event.preventDefault();
         });
     </script>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="logo">ROYAL OF ILLEGAL</div>
-        <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Tools</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Contacts</a></li>
-        </ul>
+    <div class="message-card" id="messageCard">
+        <button onclick="closeMessageCard()">X</button>
+        <p>Welcome to Royalstar Portal!</p>
+        <p>THE SEVER 404 ERROR</p>
     </div>
-    <marquee>404 server</marquee>
-    <div class="main-content">
-        <div class="header">Welcome to the Royalstar Portal</div>
-        <div class="grid-container">
-            <a href="#" class="grid-item">Site 1</a>
-            <a href="#" class="grid-item">Site 2</a>
-            <a href="#" class="grid-item">Site 3</a>
-            <a href="#" class="grid-item">Site 4</a>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">ROYAL OF ILLEGAL</div>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Tools</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
         </div>
-        <div class="portfolio-box">
-            <h2>User Portfolio</h2>
-            <p>View and manage your portfolio here.</p>
-            <a href="#" class="grid-item">View Portfolio</a>
+        <div class="main-content">
+            <div class="header">Welcome to the Royalstar Portal</div>
+            <div class="grid-container">
+                <a href="#" class="grid-item">Site 1</a>
+                <a href="#" class="grid-item">Site 2</a>
+                <a href="#" class="grid-item">Site 3</a>
+                <a href="#" class="grid-item">Site 4</a>
+            </div>
+            <div class="portfolio-box">
+                <img src="profile.jpg" alt="User Profile">
+                <p>User Portfolio</p>
+            </div>
         </div>
     </div>
     <footer>
-        <marquee>404 server</marquee>
         <p>&copy; 2025 Royal_of_illegal. All Rights Reserved.</p>
     </footer>
-    <marquee>404 server</marquee>
 </body>
 </html>
-
-
