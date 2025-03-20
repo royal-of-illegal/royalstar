@@ -24,6 +24,7 @@
             color: #0f0;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
         }
@@ -97,12 +98,17 @@
             transform: translateY(-5px);
             box-shadow: 0 0 10px #0f0;
         }
+        .portfolio-box {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #0f0;
+            background-color: #000;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in;
+        }
         footer {
             text-align: center;
             padding: 10px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
             background-color: #000;
             border-top: 2px solid #0f0;
         }
@@ -138,7 +144,7 @@
             <li><a href="#">Contacts</a></li>
         </ul>
     </div>
-      <marquee>404 server</marquee>
+    <marquee>404 server</marquee>
     <div class="main-content">
         <div class="header">Welcome to the Royalstar Portal</div>
         <div class="grid-container">
@@ -147,12 +153,17 @@
             <a href="#" class="grid-item">Site 3</a>
             <a href="#" class="grid-item">Site 4</a>
         </div>
+        <div class="portfolio-box">
+            <h2>User Portfolio</h2>
+            <p>View and manage your portfolio here.</p>
+            <a href="#" class="grid-item">View Portfolio</a>
+        </div>
     </div>
     <footer>
-          <marquee>404 server</marquee>
+        <marquee>404 server</marquee>
         <p>&copy; 2025 Royal_of_illegal. All Rights Reserved.</p>
     </footer>
-      <marquee>404 server</marquee>
+    <marquee>404 server</marquee>
 </body>
 </html>
 
