@@ -36,9 +36,9 @@
             justify-content: space-between;
         }
         .sidebar {
-            width: 20vw;
-            min-width: 200px;
-            max-width: 300px;
+            width: 15vw;
+            min-width: 150px;
+            max-width: 250px;
             background-color: #000;
             padding: 20px;
             position: fixed;
@@ -46,6 +46,16 @@
             border-right: 2px solid #0f0;
             transition: width 0.3s;
             animation: slideIn 1s ease-out;
+        }
+        .sidebar-toggle {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #0f0;
+            border: none;
+            color: #000;
+            padding: 5px 10px;
+            cursor: pointer;
         }
         .logo {
             font-size: 24px;
@@ -74,9 +84,9 @@
             transform: scale(1.1);
         }
         .main-content {
-            margin-left: 22vw;
+            margin-left: 17vw;
             padding: 20px;
-            width: calc(100% - 22vw);
+            width: calc(100% - 17vw);
             animation: fadeIn 1.5s ease-in;
         }
         .header {
@@ -125,28 +135,17 @@
             margin-bottom: 10px;
             border: 2px solid #0f0;
         }
-        .message-card {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #000;
-            padding: 20px;
-            border: 2px solid #0f0;
-            text-align: center;
-            width: 300px;
-            animation: fadeIn 1s ease-in;
-        }
-        .message-card button {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            background: red;
+        .portfolio-box button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #0f0;
             border: none;
-            color: white;
-            font-size: 16px;
+            color: #000;
             cursor: pointer;
+            transition: 0.3s;
+        }
+        .portfolio-box button:hover {
+            background-color: #0a0;
         }
         footer {
             text-align: center;
@@ -158,28 +157,11 @@
             width: 100%;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            setTimeout(function() {
-                document.getElementById("messageCard").style.display = "block";
-            }, 1000);
-        });
-        function closeMessageCard() {
-            document.getElementById("messageCard").style.display = "none";
-        }
-        document.addEventListener("contextmenu", function(event) {
-            event.preventDefault();
-        });
-    </script>
 </head>
 <body>
-    <div class="message-card" id="messageCard">
-        <button onclick="closeMessageCard()">X</button>
-        <p>Welcome to Royalstar Portal!</p>
-        <p>THE SEVER 404 ERROR</p>
-    </div>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">|||</button>
     <div class="container">
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <div class="logo">ROYAL OF ILLEGAL</div>
             <ul>
                 <li><a href="#">Dashboard</a></li>
@@ -199,11 +181,23 @@
             <div class="portfolio-box">
                 <img src="profile.jpg" alt="User Profile">
                 <p>User Portfolio</p>
+                <button>View</button>
             </div>
         </div>
     </div>
     <footer>
         <p>&copy; 2025 Royal_of_illegal. All Rights Reserved.</p>
     </footer>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            if (sidebar.style.display === "none" || sidebar.style.width === "0px") {
+                sidebar.style.width = "15vw";
+            } else {
+                sidebar.style.width = "0px";
+            }
+        }
+    </script>
 </body>
 </html>
+
